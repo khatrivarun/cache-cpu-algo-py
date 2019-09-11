@@ -8,7 +8,6 @@ class LRU (DoublyLinkedList):
     # and initializing hits and misses.
     def __init__(self, total_length):
         super().__init__(total_length)
-        self.total_length = total_length
         self.hits = 0
         self.miss = 0
 
