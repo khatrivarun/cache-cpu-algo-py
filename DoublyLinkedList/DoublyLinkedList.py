@@ -9,12 +9,12 @@ class DoublyLinkedList:
 
     def push(self, data):
 
-        if self.counter < self.total_length:
+        if self.counter is not self.total_length:
             new_node = Node(data)
 
             if self.head is not None:
                 self.head.previous = new_node
-                new_node.next = self.head
+            new_node.next = self.head
 
             self.head = new_node
 
@@ -62,6 +62,12 @@ class DoublyLinkedList:
         while temp_node is not None:
             print(temp_node.data)
             temp_node = temp_node.next
+
+    def is_full(self):
+        if self.counter is self.total_length:
+            return True
+        else:
+            return False
 
     def display_reverse(self):
 
