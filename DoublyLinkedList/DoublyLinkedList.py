@@ -20,7 +20,6 @@ class DoublyLinkedList:
 
             self.counter += 1
 
-        # TODO: LRU REPLACEMENT ALGORITHM.
         else:
             print("OVERLOAD.")
 

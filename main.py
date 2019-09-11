@@ -1,11 +1,9 @@
-from DoublyLinkedList.DoublyLinkedList import DoublyLinkedList
+from LRU.LRU import LRU
 
-linked_list = DoublyLinkedList(3)
-linked_list.push(1)
-linked_list.push(2)
-linked_list.push(3)
-linked_list.dequeue()
-linked_list.push(4)
-
-linked_list.display()
-linked_list.display_reverse()
+lru = LRU(4)
+lru.push(1)
+lru.push(2)
+lru.push(3)
+lru.push(4)
+lru.move_to_front(3)
+lru.display()
