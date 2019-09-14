@@ -1,15 +1,8 @@
-from DoublyLinkedList.DoublyLinkedList import DoublyLinkedList
+from Cache.Cache import Cache
 
 
-# Inheriting from Doubly Linked List.
-class LRU (DoublyLinkedList):
-
-    # Constructor for length of cache memory
-    # and initializing hits and misses.
-    def __init__(self, total_length):
-        super().__init__(total_length)
-        self.hits = 0
-        self.miss = 0
+# Inheriting from Cache Abstract Class.
+class LRU (Cache):
 
     # Move an element from already present position to first position.
     def move_to_front(self, data):
@@ -58,12 +51,3 @@ class LRU (DoublyLinkedList):
             if check:
                 self.dequeue()
             self.push(value)
-
-    # Display Cache Status.
-    def display_cache(self):
-        print("HITS: {}".format(self.hits))
-        print("MISSES: {}".format(self.miss))
-        print("COUNTER: {}".format(self.counter))
-        print("TOTAL LENGTH: {}".format(self.total_length))
-        print("CACHE STATUS: \n")
-        self.display()

@@ -2,7 +2,7 @@ from .Node import Node
 
 
 # ADT For Doubly Linked List.
-class DoublyLinkedList:
+class List:
 
     # Constructor for length and counter of the list
     # with head of the list.
@@ -75,6 +75,21 @@ class DoublyLinkedList:
     def is_full(self):
         if self.counter is self.total_length:
             return True
+        else:
+            return False
+
+    def is_present(self, data):
+
+        temp_node = self.head
+        while temp_node and temp_node.data is not data:
+            temp_node = temp_node.next
+
+        if temp_node:
+
+            if temp_node.data is data:
+                return True
+            else:
+                return False
         else:
             return False
 

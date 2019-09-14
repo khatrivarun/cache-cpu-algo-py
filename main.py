@@ -1,8 +1,9 @@
-from FIFO.FIFO import FIFO
+from Cache.LRU.LRU import LRU
 
-fifo = FIFO(10)
-for i in range(1, 11):
-    fifo.set_value(i)
-for i in range(1, 10):
-    fifo.set_value(i)
-fifo.display_cache()
+lru = LRU(3)
+lru.set_value(10)
+lru.set_value(20)
+lru.set_value(30)
+lru.set_value(40)
+lru.set_value(20)
+lru.display_cache()

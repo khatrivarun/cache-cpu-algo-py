@@ -1,16 +1,8 @@
-from DoublyLinkedList.DoublyLinkedList import DoublyLinkedList
+from Cache.Cache import Cache
 
 
-# Inheriting from Doubly Linked List.
-class FIFO(DoublyLinkedList):
-
-    # Constructor for length of cache memory
-    # and initializing hits and misses.
-    def __init__(self, total_length):
-        super().__init__(total_length)
-        self.hits = 0
-        self.miss = 0
-        self.reference_node = None
+# Inheriting from Cache Abstract Class.
+class FIFO(Cache):
 
     def traverse_to_last(self):
 
@@ -78,12 +70,3 @@ class FIFO(DoublyLinkedList):
                         self.reference_node = self.reference_node.previous
                 else:
                     self.push(value)
-
-    # Display Cache Status.
-    def display_cache(self):
-        print("HITS: {}".format(self.hits))
-        print("MISSES: {}".format(self.miss))
-        print("COUNTER: {}".format(self.counter))
-        print("TOTAL LENGTH: {}".format(self.total_length))
-        print("CACHE STATUS: \n")
-        self.display()
