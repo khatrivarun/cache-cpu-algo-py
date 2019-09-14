@@ -2,7 +2,7 @@ from .Node import Node
 
 
 # ADT For Doubly Linked List.
-class DoublyLinkedList:
+class List:
 
     # Constructor for length and counter of the list
     # with head of the list.

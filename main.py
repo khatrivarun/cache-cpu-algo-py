@@ -1,8 +1,9 @@
-from DoublyLinkedList.DoublyLinkedList import DoublyLinkedList
-List = DoublyLinkedList(3)
+from Cache.LRU.LRU import LRU
 
-List.push(1)
-List.push(2)
-List.push(3)
-
-print(List.is_present(4))
+lru = LRU(3)
+lru.set_value(10)
+lru.set_value(20)
+lru.set_value(30)
+lru.set_value(40)
+lru.set_value(20)
+lru.display_cache()
