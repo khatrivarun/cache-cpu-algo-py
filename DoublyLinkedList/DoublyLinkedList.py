@@ -78,6 +78,21 @@ class DoublyLinkedList:
         else:
             return False
 
+    def is_present(self, data):
+
+        temp_node = self.head
+        while temp_node and temp_node.data is not data:
+            temp_node = temp_node.next
+
+        if temp_node:
+
+            if temp_node.data is data:
+                return True
+            else:
+                return False
+        else:
+            return False
+
     # Display in reverse manner.
     # (Used for checking the stability of the double linked list.)
     def display_reverse(self):

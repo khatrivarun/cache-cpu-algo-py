@@ -1,8 +1,8 @@
-from FIFO.FIFO import FIFO
+from DoublyLinkedList.DoublyLinkedList import DoublyLinkedList
+List = DoublyLinkedList(3)
 
-fifo = FIFO(10)
-for i in range(1, 11):
-    fifo.set_value(i)
-for i in range(1, 10):
-    fifo.set_value(i)
-fifo.display_cache()
+List.push(1)
+List.push(2)
+List.push(3)
+
+print(List.is_present(4))
