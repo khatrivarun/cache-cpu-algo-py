@@ -1,2 +1,2 @@
-# fifo-optimal-lru-py
-Python code for cache replacement algorithms: FIFO, Optimal and LRU
+# cache-cpu-algo-py
+Python code for cache replacement algorithms and CPU scheduling algorithms.
