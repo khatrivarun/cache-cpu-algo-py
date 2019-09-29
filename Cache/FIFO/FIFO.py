@@ -21,7 +21,7 @@ class FIFO(Cache):
         if self.head is None:
 
             self.miss += 1
-            self.push(value)
+            self.push(data=value)
             self.reference_node = self.head
 
         else:
@@ -69,4 +69,4 @@ class FIFO(Cache):
 
                         self.reference_node = self.reference_node.previous
                 else:
-                    self.push(value)
+                    self.push(data=value)

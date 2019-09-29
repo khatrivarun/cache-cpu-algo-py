@@ -1,9 +1,7 @@
-from Cache.LRU.LRU import LRU
+from CPU.CPU import CPU
 
-lru = LRU(3)
-lru.set_value(10)
-lru.set_value(20)
-lru.set_value(30)
-lru.set_value(40)
-lru.set_value(20)
-lru.display_cache()
+cpu = CPU()
+cpu.startup_cpu(5)
+cpu.init_arrival_time([0, 1, 2, 3, 4])
+cpu.init_burst_time([10, 12, 20, 93, 44])
+cpu.display(True)
