@@ -17,7 +17,7 @@ class LRU (Cache):
         if self.head.data is not data:
             temp_node.previous.next = temp_node.next
             self.counter -= 1
-            self.push(data)
+            self.push(data=data)
 
     # Main function to put values in cache memory
     def set_value(self, value):
@@ -40,14 +40,14 @@ class LRU (Cache):
             # in the current state of node.
             if temp_node.data is value:
                 self.hits += 1
-                self.move_to_front(value)
+                self.move_to_front(data=value)
             elif temp_node.data is not value:
                 self.miss += 1
                 if check:
-                    self.dequeue()
-                self.push(value)
+                    self.remove_last()
+                self.push(data=value)
         else:
             self.miss += 1
             if check:
-                self.dequeue()
-            self.push(value)
+                self.remove_last()
+            self.push(data=value)
