@@ -5,7 +5,7 @@ from abc import ABC
 class CPU(ABC, List):
     def __init__(self):
         super().__init__()
-        self.ready_queue = None
+        self.ready_queue = List()
         self.no_of_processes = 0
         self.clock = 0
 
@@ -13,7 +13,7 @@ class CPU(ABC, List):
 
         self.no_of_processes = no
         for i in range(1, no+1):
-            self.add_last(data=i, key="P{}".format(i))
+            self.enqueue(data=i, key="P{}".format(i))
 
     def init_arrival_time(self, arrival_times):
 
