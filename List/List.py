@@ -22,7 +22,8 @@ class List:
              waiting_time=None):
 
         if self.counter is not self.total_length:
-            new_node = Node(data=data, key=key,
+            new_node = Node(data=data,
+                            key=key,
                             arrival_time=arrival_time,
                             burst_time=burst_time,
                             completion_time=completion_time,
@@ -47,8 +48,11 @@ class List:
 
         if self.counter is not 0:
 
-            temp_node.next.previous = None
-            self.head = self.head.next
+            if temp_node.next is None:
+                self.head = None
+            else:
+                temp_node.next.previous = None
+                self.head = self.head.next
 
             self.counter -= 1
 
@@ -57,8 +61,8 @@ class List:
             print("NO ELEMENT PRESENT")
 
     # Add element to the back of the list.
-    def add_last(self, data, key=None, arrival_time=None, burst_time=None, completion_time=None,turn_around_time=None,
-                 waiting_time=None):
+    def enqueue(self, data, key=None, arrival_time=None, burst_time=None, completion_time=None, turn_around_time=None,
+                waiting_time=None):
 
         temp_node = self.head
         new_node = Node(data=data,
@@ -83,6 +87,8 @@ class List:
             new_node.previous = None
             self.head = new_node
 
+        self.counter += 1
+
     # QUEUE OPERATION: Remove the last element.
     def remove_last(self):
 
@@ -101,12 +107,12 @@ class List:
 
             print("NO ELEMENT PRESENT.")
 
-    def search(self, key):
+    def search(self, data):
 
         temp_node = self.head
 
-        while temp_node is not None:
-            if temp_node.key == key:
+        while temp_node is not None and temp_node.data is not data:
+            if temp_node.data == data:
                 break
             else:
                 temp_node = temp_node.next
@@ -168,7 +174,12 @@ class List:
         while temp_node.next is not None:
             temp_node = temp_node.next
 
-        if is_cpu is True:
+        if is_cpu is not True:
+            while temp_node is not None:
+                print(temp_node.data)
+                temp_node = temp_node.previous
+
+        else:
             while temp_node is not None:
                 print(self.template.format(temp_node.key,
                                            temp_node.arrival_time,
@@ -179,7 +190,3 @@ class List:
 
                 temp_node = temp_node.previous
 
-        else:
-            while temp_node is not None:
-                print(temp_node.data)
-                temp_node = temp_node.previous
