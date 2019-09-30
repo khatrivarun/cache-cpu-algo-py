@@ -32,9 +32,6 @@ class RoundRobin(CPU):
                 temp_head.waiting_time = temp_head.turn_around_time - temp_head.burst_time
 
             temp_head = temp_head.next
-            self.ready_queue.display(is_cpu=True)
-            print("CLOCK: {}".format(self.clock))
-            print('-----------------------------------------------------------')
 
         queue_head = self.ready_queue.head
 
@@ -64,6 +61,3 @@ class RoundRobin(CPU):
 
             queue_head = queue_head.next
             self.ready_queue.pop()
-            self.ready_queue.display(is_cpu=True)
-            print("CLOCK: {}".format(self.clock))
-            print('-----------------------------------------------------------')
