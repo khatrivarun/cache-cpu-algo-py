@@ -1,4 +1,4 @@
-# Singular node for a double linked list.
+# Singular node for a double linked list with values required for both CPU and Cache.
 class Node:
     def __init__(self,
                  data,

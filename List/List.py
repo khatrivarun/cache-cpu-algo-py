@@ -103,6 +103,8 @@ class List:
 
             print("NO ELEMENT PRESENT.")
 
+    # Search for a particular value in the list using linear search.
+    # and returning the node if found.
     def search(self, data):
 
         temp_node = self.head
@@ -113,6 +115,7 @@ class List:
             else:
                 temp_node = temp_node.next
 
+        # Returning the node found else null.
         if temp_node is not None:
             return temp_node
         else:
@@ -125,14 +128,17 @@ class List:
         else:
             return False
 
+    # To check if a particular value is present in the list or not.
     def is_present(self, data):
 
         temp_node = self.head
         while temp_node and temp_node.data is not data:
             temp_node = temp_node.next
 
+        # If value found then return true else false.
         if temp_node:
 
+            # If value found then return true else false.
             if temp_node.data is data:
                 return True
             else:
