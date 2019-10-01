@@ -33,3 +33,6 @@ class CPU(ABC, List):
 
     def compile(self):
         pass
+
+    def cpu_status(self):
+        pass

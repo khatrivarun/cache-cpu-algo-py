@@ -10,16 +10,10 @@ class List:
         self.total_length = total_length
         self.counter = 0
         self.head = None
-        self.template = "PROCESS ID: {}\n" \
-                        "ARRIVAL TIME: {}\n" \
-                        "BURST TIME: {}\n" \
-                        "COMPLETION TIME: {}\n" \
-                        "TURN AROUND TIME: {}\n" \
-                        "WAITING TIME: {}\n\n"
 
     # STACK OPERATION: Insert new element at the beginning of the list.
     def push(self, data, key=None, arrival_time=None, burst_time=None, completion_time=None, turn_around_time=None,
-             waiting_time=None):
+             waiting_time=None, service_time=None):
 
         if self.counter is not self.total_length:
             new_node = Node(data=data,
@@ -28,7 +22,8 @@ class List:
                             burst_time=burst_time,
                             completion_time=completion_time,
                             turn_around_time=turn_around_time,
-                            waiting_time=waiting_time)
+                            waiting_time=waiting_time,
+                            service_time=service_time)
 
             if self.head is not None:
                 self.head.previous = new_node
@@ -62,7 +57,7 @@ class List:
 
     # Add element to the back of the list.
     def enqueue(self, data, key=None, arrival_time=None, burst_time=None, completion_time=None, turn_around_time=None,
-                waiting_time=None):
+                waiting_time=None, service_time=None):
 
         temp_node = self.head
         new_node = Node(data=data,
@@ -71,7 +66,8 @@ class List:
                         burst_time=burst_time,
                         completion_time=completion_time,
                         turn_around_time=turn_around_time,
-                        waiting_time=waiting_time)
+                        waiting_time=waiting_time,
+                        service_time=service_time)
         new_node.next = None
 
         if temp_node:
@@ -145,48 +141,10 @@ class List:
             return False
 
     # Display the linked List.
-    def display(self, is_cpu=False):
+    def display(self):
 
         temp_node = self.head
-        if is_cpu is True:
-            while temp_node is not None:
-
-                print(self.template.format(temp_node.key,
-                                           temp_node.arrival_time,
-                                           temp_node.burst_time,
-                                           temp_node.completion_time,
-                                           temp_node.turn_around_time,
-                                           temp_node.waiting_time))
-
-                temp_node = temp_node.next
-
-        else:
-            while temp_node is not None:
-                print(temp_node.data)
-                temp_node = temp_node.next
-
-    # Display in reverse manner.
-    # (Used for checking the stability of the double linked list.)
-    def display_reverse(self, is_cpu=False):
-
-        temp_node = self.head
-
-        while temp_node.next is not None:
+        while temp_node is not None:
+            print(temp_node.data)
             temp_node = temp_node.next
-
-        if is_cpu is not True:
-            while temp_node is not None:
-                print(temp_node.data)
-                temp_node = temp_node.previous
-
-        else:
-            while temp_node is not None:
-                print(self.template.format(temp_node.key,
-                                           temp_node.arrival_time,
-                                           temp_node.burst_time,
-                                           temp_node.completion_time,
-                                           temp_node.turn_around_time,
-                                           temp_node.waiting_time))
-
-                temp_node = temp_node.previous
 
