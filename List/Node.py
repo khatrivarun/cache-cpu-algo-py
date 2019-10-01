@@ -7,8 +7,10 @@ class Node:
                  burst_time=None,
                  completion_time=None,
                  turn_around_time=None,
-                 waiting_time=None):
+                 waiting_time=None,
+                 service_time=None):
 
+        self.service_time = service_time
         self.waiting_time = waiting_time
         self.turn_around_time = turn_around_time
         self.completion_time = completion_time

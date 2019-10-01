@@ -5,6 +5,12 @@ class RoundRobin(CPU):
     def __init__(self, quantum_time):
         super().__init__()
         self.quantum_time = quantum_time
+        self.template = "PROCESS ID: {}\n" \
+                        "ARRIVAL TIME: {}\n" \
+                        "BURST TIME: {}\n" \
+                        "COMPLETION TIME: {}\n" \
+                        "TURN AROUND TIME: {}\n" \
+                        "WAITING TIME: {}\n\n"
 
     def compile(self):
         temp_head = self.head
@@ -21,7 +27,8 @@ class RoundRobin(CPU):
                                          burst_time=temp_head.burst_time - self.quantum_time,
                                          completion_time=temp_head.completion_time,
                                          turn_around_time=temp_head.turn_around_time,
-                                         waiting_time=temp_head.waiting_time)
+                                         waiting_time=temp_head.waiting_time,
+                                         service_time=temp_head.service_time)
 
             elif temp_head.burst_time <= self.quantum_time:
 
@@ -57,7 +64,23 @@ class RoundRobin(CPU):
                                          burst_time=(queue_head.burst_time - self.quantum_time),
                                          completion_time=queue_head.completion_time,
                                          turn_around_time=queue_head.turn_around_time,
-                                         waiting_time=queue_head.waiting_time)
+                                         waiting_time=queue_head.waiting_time,
+                                         service_time=queue_head.service_time)
 
             queue_head = queue_head.next
             self.ready_queue.pop()
+
+    def cpu_status(self):
+        temp_node = self.head
+
+        while temp_node is not None:
+            print(self.template.format(temp_node.key,
+                                       temp_node.arrival_time,
+                                       temp_node.burst_time,
+                                       temp_node.completion_time,
+                                       temp_node.turn_around_time,
+                                       temp_node.waiting_time))
+
+            temp_node = temp_node.next
+
+
