@@ -12,7 +12,6 @@ class Cache(List, ABC):
         super().__init__(total_length)
         self.hits = 0
         self.miss = 0
-        self.reference_node = None
 
     # Abstract Method for pushing value in Cache and also
     # look for hits, misses and page replacement.
