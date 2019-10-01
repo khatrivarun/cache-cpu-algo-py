@@ -32,4 +32,3 @@ class FCFS(CPU):
                                        temp_head.waiting_time))
 
             temp_head = temp_head.next
-
